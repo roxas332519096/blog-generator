@@ -82,7 +82,6 @@ https://roxas332519096.github.io/notes-demo/0528-点击其他地方关闭浮层�
 <script>
     clickMe.addEventListener('click',function(e){
         popover.style.display = 'block';
-        e.stopPropagation();
     })
     wrapper.addEventListener('click',function(e){
             e.stopPropagation();
@@ -128,62 +127,6 @@ https://roxas332519096.github.io/notes-demo/0528-理解DOM事件DEOM.html
 代码如下:
 
 ``` bash
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-  <meta charset="utf-8">
-  <title>JS Bin</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    .red.active {
-    background: red;
-    }
-    .blue.active {
-    background: blue;
-    }
-    .green.active {
-    background: green;
-    }
-    .yellow.active {
-    background: yellow;
-    }
-    .orange.active {
-    background: orange;
-    }
-    .purple.active {
-    background: purple;
-    }
-    div {
-    border: 1px solid black;
-    padding: 10px;
-    transition: all 0.5s;
-    display: flex;
-    flex:1;
-    border-radius: 50%;
-    background: white;
-    }
-
-    .red{
-    width: 100vw;
-    height: 100vw;
-    }
-</style>
-</head>
-<body>
-<div class="red">
-  <div class="blue">
-    <div class="green">
-      <div class="yellow">
-        <div class="orange">
-          <div class="purple">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <script>
     let divs = $('div').get()
     let n = 0
@@ -206,6 +149,4 @@ https://roxas332519096.github.io/notes-demo/0528-理解DOM事件DEOM.html
     })
     }
 </script>
-</body>
-</html>
 ```
