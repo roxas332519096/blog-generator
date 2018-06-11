@@ -51,7 +51,7 @@ HttpOnly 设置该属性js不能从document.cookie;XMLHttpRequest;Request APIs�
     二级域名,三级域名的Cookie都会带上.
     另外 Cookie 还可以根据路径做限制,这个功能用得比较少.;
 
-6. 如何删除Cookie,把时间属性设置为一个过去的日期.
+6. .服务器端可以通过设置 Expires、max-age 两个标签将 Cookie 设置为过期状态;JavaScript 可以通过document.cookie API 删除 Cookie.
 
 
 下面是一个带Cookie响应头
