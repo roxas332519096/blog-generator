@@ -89,20 +89,11 @@ let request = new XMLHttprequest();
 request.open('GET','URL')  //配置request
 request.onreadystatechange = ()=>{
     if(request.readyState === 4) {
-        console.log('请求响应都完毕了')
         if(request.status >= 200 && request.status <300 || request.status === 304){
-            console.log('说明请求成功');
-            console.log(typeof request.responseText);
-            console.log(request.responseText);
             let string = request.responseText;
             // 把符合 JSON 语法的字符串转换成JS对应的值
             let object = window.JSON.parse(string);
-            console.log(typeof objcet);
             console.log(object);
-            console.log('object.note');
-            console.log(object);
-            console.log('object.note.from');
-            console.log(object.note.from);
         }esle if(request.status >= 400){
             console.log('说明请求失败');
         }

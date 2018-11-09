@@ -39,10 +39,6 @@ tags:
         e.currentTarget.remove()
         delete window[functionName] 
     }
-    script.onload = function(e){ 
-        e.currentTarget.remove()
-        delete window[functionName] 
-    }
     })
 </script>
 ```
@@ -91,18 +87,38 @@ if(path === '/'){
 14. 删除script标签
 15. 假如刷新浏览器8001,重新读取修改后的数据库db,获得修改后的数据
 
-用jQuery实现JOSNP:
+#### 原生JS的例子
+
+``` bash
+window.fn = function(response){
+    ///response是返回的数据
+}
+var script = document.createElement('script');
+script.src = 'http://api.douban.com/v2/movie/top250?callback=fn';
+document.body.appendChild(script);
+script.onload = function(e){
+    e.currentTarget.remove();
+    delete window.fn;
+}
+```
+
+#### 用jQuery实现JOSNP:
 前端代码如下:
 ``` bash
 $.ajax({
- url: "http://localhost:8002/pay",
- dataType: "jsonp",
- success: function( response ) {
-     if(response === 'success'){
-     amount.innerText = amount.innerText - 1
-     }
- }
- })
+    url:'http://api.douban.com/v2/movie/top250',
+    type:'GET',
+    data:{
+        start:0,
+        count:20
+    },
+    dataType:'jsonp'
+}).done(function(respone){
+    console.log(respone);
+}).fail(function(){
+    console.log('error');
+})
+ 
 ```
 
 #### 为什么JSONP不支持POST?
