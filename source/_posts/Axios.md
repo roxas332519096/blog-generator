@@ -54,3 +54,14 @@ axios.post('/user', {
     console.log(error);
   });
 ```
+
+#### vue-cli引入axios
+
+1. npm install axios
+2. 在vue的入口文件main.js里引入axios并使用
+
+``` bash
+import axios from 'axios'
+
+Vue.prototype.$axios = axios
+```
