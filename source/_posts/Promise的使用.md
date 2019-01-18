@@ -97,6 +97,50 @@ function onerror() {
 fn1().then(fn2).then(fn3).catch(onerror)
 ```
 
+当异步函数执行时,下一个异步函数需要用上一个异步函数的返回值可以这样写
+``` bash
+//定义函数获取城市
+function getCity(ip){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET',url/ip,true)
+        xhr.onload = function(){
+            var data = JSON.parse(xhr.responseText) //获得数据
+            resolve(data)
+        }
+        xhr.onerror = function(){
+            reject('获取失败')
+        }
+        xhr.send()
+    })
+}
+//定义函数获取天气
+function getWeather(city){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET',url/city,true)
+        xhr.onload = function(){
+            var data = JSON.parse(xhr.responseText)
+        }
+        xhr.onerror = function(){
+            reject('获取失败')
+        }
+        xhr.send
+    })
+}
+
+//调用
+
+getCity(上海).then((city)=>{
+    return getWeather(city)
+}).then((res)=>{
+    console.log(res)
+}).catch((error)=>{
+    console.log(error)
+})
+
+```
+
 #### Promise.all
 
 当有几个promise的时候,我们可以用promise.all让所有promise状态变更之后再回调
