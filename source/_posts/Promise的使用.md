@@ -1,7 +1,11 @@
 ---
 title: Promise的使用
 date: 2019-01-18 21:39:10
-tags:
+categories: 
+- JS
+tags: 
+- ES6
+---
 
 #### 1. Promise的作用
 

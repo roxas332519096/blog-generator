@@ -1,7 +1,10 @@
 ---
 title: render函数
 date: 2018-07-25 16:42:28
+categories: 
+- vue
 tags:
+- vue
 ---
 
 #### 初步了解
