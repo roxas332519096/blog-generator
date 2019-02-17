@@ -139,3 +139,115 @@ mapGetters({
     newListname:'list1'
 })
 ```
+
+#### Mutation
+
+Mutation是vuex更改state的唯一方法,并且必须是同步的.
+每个mutation都有一个事件类型(type)和回调函数(hander),并且以state作为第一个参数
+
+调用只能通过state.commit('type')
+``` bash
+
+//vuex
+state:{
+    count:1
+},
+mutations:{
+    increment(state){
+        state.count++
+    }
+}
+
+//compoment
+
+store.commit('increment')
+```
+
+##### 提交载荷(payload)
+
+store.commit传入额外参数,即mutation的载荷(payload)
+
+``` bash
+//vuex
+
+mutations:{
+    increment(state,n){
+        state.count += n
+    }
+}
+
+//component
+store.commit('increment',10)
+```
+
+##### mapMutations
+
+同mapGetters
+
+```
+//vuex
+
+mutations:{
+    increment(state){
+        state.count++
+    }
+}
+
+//compoment
+
+improt {mapMutations} from 'vuex'
+
+methods:{
+    ..mapMutations(['increment'])
+    //或
+    //...mapMutations({
+        add:'increment'
+    })
+}
+```
+
+#### Action
+
+vuex需要异步操作时,需要用action,用action调用mutation的方法更改state
+
+``` bash
+//vuex
+
+state:{
+    count:0
+},
+mutations:{
+    increment(state){
+        state.count++
+    }
+}.
+actions:{
+    add(context){
+        setTimeout(()=>{
+            context.commit('increment')
+        },1000)
+    }
+}
+
+//compoment
+store.dispatch('add')
+```
+
+##### 参数context
+
+action的第一个参数context相当于上下文,可以通过context.state和context.getters获取state与getters
+可以用ES6的赋值解构进行简写.
+
+```bash
+actions:{
+    add({commit}){
+        setTimeout(()=>{
+            commit('increment')
+        },1000)
+    }
+}
+```
+
+##### mapActions
+
+方法同mapMutations
