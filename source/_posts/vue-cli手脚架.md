@@ -1,7 +1,10 @@
 ---
 title: vue-cli手脚架
 date: 2018-07-25 16:42:39
+categories:
+- vue
 tags:
+- vue
 ---
 #### 安装
 
@@ -81,4 +84,18 @@ npm run server
 #### 输出项目
 ``` bash
 npm run build
+```
+
+#### 关于vue.config.js
+
+vue.config.js属于可选文件,需要自己手动去创建
+
+#### 如何部署本地(github)
+
+在根目录下创建vue.config.js
+
+``` bash
+module.exports = {
+    publicPath: './'
+  }
 ```
