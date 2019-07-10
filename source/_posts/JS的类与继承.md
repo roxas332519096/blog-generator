@@ -72,9 +72,9 @@ f.__proto__.proto__ === Human.prototype;//true
 Man.prototype.__proto__ === Human.prototype;//true
 ```
 
-##### 构造函数的prototype
+##### prototype
 
-prototype属性只有一个功能,存放共有属性对象的地址
+prototype,存放共有属性对象的地址
 
 ##### ES5和ES6的写法
 
@@ -98,13 +98,14 @@ Man.protype = new f()
 Man.prtotype = New Human();会执行this.name,使得有多余属性
 因为第4步不想要,所以构造一个空函数,只要他的protype
 
-空函数.protype = Human.protype;
+空函数.protype = Human.prototype;
 Man.protype = new f() // 1,2,3,5步
-f.protype === Human.protype //true
-Man.protype.__proto__ === f.protype //true 
+f.protype === Human.prototype //true
+Man.protype.__proto__ === f.prototype //true 
 
 ES6:
 constructor构造自有属性,共有属性写在constructor外面
+super,执行超类(父类)的constructor
 ``` bash
 class Human{
     constructor(name){
@@ -139,3 +140,43 @@ atuhor//{
     }
 }
 ```
+
+##### get set
+//属性封装
+用get来控制只读属性.属性可通过set来条件控制
+``` bash
+class Animal{
+    constructor(name){
+        this.name = name
+        this._race = 'moving'
+    }
+    get race(){
+        return this._race
+    }
+    set race(value){
+        this._race = value
+    }
+}
+
+//let dog = new Animal('dog')
+dog.race //moving
+dog.race = 'donig'
+dog.race //doing
+```
+
+##### static静态方法
+不需要实例化就可以调用的方法
+``` bash
+class Animal{
+    constructor(name){
+        this.name = name
+        this._race = 'moving'
+    }
+    static die(){
+        console.log('Animal Die')
+    }
+}
+
+Animal.die //Animal Die
+```
+
