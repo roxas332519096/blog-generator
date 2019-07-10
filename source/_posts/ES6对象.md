@@ -193,7 +193,7 @@ o.age //100
 定义多个属性
 
 ``` bash
-Oject.definedProperties(obj,{
+Object.definedProperties(obj,{
     'a':{
         value:1,
         writable:true

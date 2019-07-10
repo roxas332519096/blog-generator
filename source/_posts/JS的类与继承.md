@@ -1,7 +1,8 @@
 ---
-title: JS的类与继成
+title: JS的类与继承
 date: 2018-07-25 02:52:08
 tags:
+- ES6
 ---
 #### 继承
 
@@ -10,6 +11,10 @@ tags:
 JS没有继承,只有原型链引用
 
 一个对象的__proto__指向构造他的函数的protype
+
+``` bash
+obj._proto_ = Object.prototype
+```
 
 如:
 ``` bash
@@ -20,7 +25,10 @@ a.valueOf() //继承Object
 
 push是Array.protoype的属性;
 valueOf是继承子Ojbect.prototype的;
-因为Array.protype.__proto__ = Object.protype
+因为
+``` bash
+Array.protoype.__proto__ = Object.protoype
+```
 
 隔了两层的才是继承,对于a;push是自身有的,valueOf才是继承的.
 
@@ -96,6 +104,7 @@ f.protype === Human.protype //true
 Man.protype.__proto__ === f.protype //true 
 
 ES6:
+constructor构造自有属性,共有属性写在constructor外面
 ``` bash
 class Human{
     constructor(name){
@@ -113,6 +122,20 @@ class Man extends Human{//等价于Man.protype.__protype = Human.protype
     }
     fight(){
         console.log('fight')
+    }
+}
+
+var author = new Man('roxas')
+atuhor//{
+    name:'roxas',
+    gender:'Man'
+    __proto__:{
+        fight(){},
+        ...
+        __proto__:{
+            run(){}
+            ...
+        }
     }
 }
 ```
