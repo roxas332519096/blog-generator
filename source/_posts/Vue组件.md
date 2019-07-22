@@ -563,14 +563,13 @@ mounted(){
 }
 
 //child
-data(){
-    return {
-
+inject:['eventBus'],
+methods:{
+    emitEvent(){
+        this.evenBus.$emit('event','hi')//子组件a发布事件
     }
 },
-inject:['eventBus'],
 mounted(){
-    this.evenBus.$emit('event',this.data)//子组件a发布事件
     this.evenBus.$on('event',(val)={//子组件b监听事件
         console.log(val)
     })
