@@ -1,10 +1,13 @@
 ---
 title: Axios
 date: 2018-07-26 20:21:20
+categories:
+  - Vue
 tags:
+  - Vue
 ---
 
-#### Axios的好处
+#### Axios 的好处
 
 从浏览器中创建 XMLHttpRequests
 从 node.js 创建 http 请求
@@ -15,9 +18,9 @@ tags:
 自动转换 JSON 数据
 客户端支持防御 XSRF
 
-#### axios发送post请求
+#### axios 发送 post 请求
 
-``` bash
+```bash
 axios.get('/user?ID=12345')
   .then(function (response) {
     console.log(response);
@@ -40,9 +43,9 @@ axios.get('/user', {
   });
 ```
 
-#### axios发送get请求
+#### axios 发送 get 请求
 
-``` bash
+```bash
 axios.post('/user', {
     firstName: 'Fred',
     lastName: 'Flintstone'
@@ -55,12 +58,12 @@ axios.post('/user', {
   });
 ```
 
-#### vue-cli引入axios
+#### vue-cli 引入 axios
 
 1. npm install axios
-2. 在vue的入口文件main.js里引入axios并使用
+2. 在 vue 的入口文件 main.js 里引入 axios 并使用
 
-``` bash
+```bash
 import axios from 'axios'
 
 Vue.prototype.$axios = axios

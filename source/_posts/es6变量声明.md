@@ -2,9 +2,9 @@
 title: ES6变量声明
 date: 2019-07-08 12:17:27
 categories:
-- ES6
+  - ES6
 tags:
-- ES6
+  - ES6
 ---
 
 #### let
@@ -13,9 +13,9 @@ tags:
 2. 不会进行变量名声明提升
 3. 不能重复声明
 
-在es6之前,声明局部变量要使用立即执行函数
+在 es6 之前,声明局部变量要使用立即执行函数
 
-``` bash
+```bash
 {
     let a = 1
 }
@@ -38,22 +38,25 @@ console.log(1) //报错
 
 #### const
 
-同let,但只有一次赋值机会,必须在声明的时候赋值.
+同 let,但只有一次赋值机会,必须在声明的时候赋值.
 {
-    const a //报错
+const a //报错
 }
 
 #### 面试题
 
-1. 
-``` bash
+1.
+
+```bash
 for(var i = 0;i < 6;i++){
     ///
 }
 console.log(i);/6
 ```
+
 解:
-``` bah
+
+```bah
 变成
 var i
 for(i = 0;i < 6;i++){
@@ -62,8 +65,9 @@ for(i = 0;i < 6;i++){
 console.log(i);/6
 ```
 
-2. 
-``` bash
+2.
+
+```bash
 for(var i = 0;i < 6;i++){
     function fn(){
         console.log(i)
@@ -72,8 +76,10 @@ for(var i = 0;i < 6;i++){
 }
 6
 ```
+
 3.
-``` bash
+
+```bash
 <ul>
     <li>1</li>
     <li>2</li>
