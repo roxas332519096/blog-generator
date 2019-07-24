@@ -1,7 +1,10 @@
 ---
 title: Vue组件
 date: 2018-07-13 23:05:25
-tags:
+categories:
+- vue
+tags: 
+- vue
 ---
 ### vue组件
 
@@ -540,6 +543,40 @@ Vue.component('comp-b',{
 </script>
 ```
 
+##### 父子组件间使用独立的eventbus
+
+``` bash
+//parent
+
+data(){
+    eventBus:new Vue()
+},
+provide(){//向子组件注入
+    return {
+        eventBus:this.eventBus
+    }
+},
+mounted(){
+    this.evenBus.$on('event',(val)={//父组件b监听事件
+        console.log(val)
+    })
+}
+
+//child
+inject:['eventBus'],
+methods:{
+    emitEvent(){
+        this.evenBus.$emit('event','hi')//子组件a发布事件
+    }
+},
+mounted(){
+    this.evenBus.$on('event',(val)={//子组件b监听事件
+        console.log(val)
+    })
+}
+
+```
+
 #### 插槽
 
 为了让组件可以组合,我们需要一种方式来混合父组件的内容与子组件自己的模板,这个过程被称为内容分发.
@@ -652,8 +689,13 @@ slot-scope的属性值指向插槽中的属性值,2.5.0版本下要使用templat
 <div id="app3">
     <my-comp-abc>
         <p slot="abc" slot-scope="props">
-            {{props.a}} ---
-            {{props.b}}
+            <button @click="props.b">{{props.a}}</button>
+        </p>
+    </my-comp-abc>
+    //也可以用es6赋值解构
+    <my-comp-abc>
+        <p slot="abc" slot-scope="{a,b}">
+            <button @click="b">{{a}}</button>
         </p>
     </my-comp-abc>
 </div>
@@ -664,9 +706,19 @@ slot-scope的属性值指向插槽中的属性值,2.5.0版本下要使用templat
             'my-comp-abc':{
                 template:`
                 <div>
-                    <slot a="子组件a属性内容" b="子组件b属性内容" name="abc"></slot>
+                    <slot :a="a" :b="b" name="abc"></slot>
                 </div>
-                `
+                `,
+                data(){
+                    return {
+                        a:'click'
+                    }
+                },
+                methods:{
+                    b(){
+                        console.log('b')
+                    }
+                }
             }
         }
     })
