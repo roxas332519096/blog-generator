@@ -99,3 +99,21 @@ module.exports = {
     publicPath: './'
   }
 ```
+
+#### assets 和 static文件夹的区别
+
+assets目录中的文件会被webpack处理解析为模块依赖,只支持相对路径形式
+
+static/ 目录下的文件并不会被Webpack处理:它们会直接被复制到最终的打包目录(默认是dist/static)下.必须使用绝对路径引用这些文件,这是通过在 config.js 文件中的 build.assetsPublicPath 和 build.assetsSubDirectory 连接来确定的
+任何放在 static/ 中文件需要以绝对路径的形式引用: /static/[filename]
+
+总的来说：static放不会变动的文件 assets放可能会变动的文件
+
+#### --save-dev和-save的区别
+即-d和-s的区别
+
+--save-dev安装依赖的时候会在package.json的devDependencies对象下面
+
+--save安装依赖的时候会在dependencies对象下面
+
+总结:--save是发布后依赖的东西,--save-dev是开发依赖的东西.
