@@ -119,3 +119,50 @@ process.exit(0)
 
 /////////////输出
 ```
+
+#### 写一个族谱
+``` bash
+{
+    class Person {
+        public children: Person[] = []
+        constructor(public name: string) { }
+        addChild(child: Person): void {
+            this.children.push(child)
+        }
+        introduceFamily(n?: number): void {
+            n = n ? n : 1
+            let prefix = '----'.repeat(n - 1)
+            console.log(`${prefix}${this.name}`)
+            this.children.forEach((child) => {
+                child.introduceFamily(n + 1)
+            })
+        }
+    }
+
+    const grandpa = new Person('爷爷')
+    const child1 = new Person('大儿子')
+    const child2 = new Person('二儿子')
+    const person11 = new Person('大孙子')
+    const person12 = new Person('二孙子')
+    const person21 = new Person('三孙子')
+    const person22 = new Person('四孙子')
+    grandpa.addChild(child1)
+    grandpa.addChild(child2)
+    child1.addChild(person11)
+    child1.addChild(person12)
+    child2.addChild(person21)
+    child2.addChild(person22)
+
+    grandpa.introduceFamily()
+}
+
+
+///输出
+爷爷
+----大儿子
+--------大孙子
+--------二孙子
+----二儿子
+--------三孙子
+--------四孙子
+```
