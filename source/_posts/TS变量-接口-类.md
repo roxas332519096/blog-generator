@@ -86,7 +86,7 @@ console.log((<string>a).split(''))
 
 ### 接口
 
-定义必须有的属性或者方法
+描述一个对象必须有什么属性(方法)
 
 ``` bash
     interface Shape {
@@ -123,8 +123,119 @@ console.log((<string>a).split(''))
 ``` bash
 interface Human {
     readonly name: string
+    age: number
+```
+
+2. 可选属性
+
+``` bash
+interface Human {
+    readonly name: string
     age: number,
-    shape: Shape,
-    say(word: string): void
+    like?:Array<string>
+```
+
+3. 假如额外传入参数
+
+``` bash
+  interface Config {
+        color?: string,
+        width?: number
+    }
+
+    function created(config: Config): void {
+        console.log(config)
+    }
+
+    created({
+        age: 'red'
+    })
+
+    //会报错
+```
+
+要使用字符串索引签名
+
+``` bash
+interface Config {
+        color?: string,
+        width?: number,
+        [propName: string]: any  //添加这一行,意思是key为字符串类型,value为any类型
+    }
+
+    function created(config: Config): void {
+        console.log(config)
+    }
+
+    created({
+        age: 'red'
+    })
+```
+
+4. 使用接口描述一个函数
+
+注意,接口定义参数名只是一个顺序,跟实际函数变量名没有关系
+
+``` bash
+    interface Operation {
+        (number1: number, number2: number): number
+    }
+
+    let add: Operation = function (n1: number, n2: number): number {
+        return n1 + n2
+    }
+    let result: number = add(1, 2)
+    console.log(result)
+```
+
+5. 接口继承
+
+``` bash
+interface Animal {
+    move(): void
+}
+
+interface Human extends Animal {
+    name: string
+    age: number
+}
+
+let tom: Human = {
+    age: 18,
+    name: 'tom',
+    move() {
+        console.log('move')
+    }
+}
+
+tom.move()
+```
+
+一个接口可以继承多个接口
+``` bash
+    interface Animal {
+        move(): void
+    }
+
+    interface 有机物 {
+        c: true
+        h: true
+        o: true
+    }
+
+    interface Human extends Animal, 有机物 {
+        name: string
+        age: number
+    }
+
+    let tom: Human = {
+        c: true,
+        h: true,
+        o: true,
+        age: 18,
+        name: 'tom',
+        move() {
+            console.log('move')
+        }
     }
 ```
