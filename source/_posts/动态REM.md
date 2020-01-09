@@ -1,7 +1,10 @@
 ---
 title: 动态REM
 date: 2018-05-27 22:12:35
+categories:
+- CSS
 tags:
+- CSS
 ---
 ### 1 什么是 REM
 

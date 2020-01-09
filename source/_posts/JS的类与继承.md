@@ -1,6 +1,8 @@
 ---
 title: JS的类与继承
 date: 2018-07-25 02:52:08
+categories:
+- ES6
 tags:
 - ES6
 ---

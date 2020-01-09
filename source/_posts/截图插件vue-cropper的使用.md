@@ -2,9 +2,9 @@
 title: 截图插件vue-cropper的使用
 date: 2019-03-04 12:47:12
 categories: 
-- vue
+- 库
 tags:
-- vue 
+- 库 
 ---
 
 #### 介绍

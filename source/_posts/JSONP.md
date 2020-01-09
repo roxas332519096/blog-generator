@@ -1,7 +1,10 @@
 ---
 title: JSONP
 date: 2018-05-30 15:38:45
+categories:
+- JS
 tags:
+- JS
 ---
 #### 什么是JSONP
 

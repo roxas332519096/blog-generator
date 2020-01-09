@@ -1,7 +1,10 @@
 ---
 title: '从一个页面输入URL到页面显示完成,这个过程中都发生了什么?'
 date: 2018-06-04 19:45:59
+categories:
+- HTTP
 tags:
+- HTTP
 ---
 
 1. 浏览器地址栏输入url

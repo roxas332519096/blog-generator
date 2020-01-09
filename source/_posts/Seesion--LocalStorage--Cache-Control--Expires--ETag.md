@@ -1,7 +1,10 @@
 ---
-title: Seesion/LocalStorage/Cache-Control/Expires/ETag
+title: Session/LocalStorage/Cache-Control/Expires/ETag
 date: 2018-06-11 17:33:05
+categories:
+- HTTP
 tags:
+- HTTP
 ---
 #### Session 与 Cookie 的关系与区别
 

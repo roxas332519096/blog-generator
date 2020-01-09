@@ -1,5 +1,5 @@
 ---
-title: 'TS变量,接口,类'
+title: 'TS变量,接口'
 date: 2020-01-08 14:06:27
 categories:
 - TS

@@ -1,7 +1,10 @@
 ---
 title: v-model的使用
 date: 2018-07-25 15:14:20
+categories:
+- vue
 tags:
+- vue
 ---
 
 #### v-model:

@@ -2,9 +2,9 @@
 title: Axios
 date: 2018-07-26 20:21:20
 categories:
-  - Vue
+  - vue
 tags:
-  - Vue
+  - vue
 ---
 
 #### Axios 的好处

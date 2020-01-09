@@ -1,7 +1,10 @@
 ---
 title: vue-router与vuex
 date: 2018-07-25 16:43:09
+categories:
+- vue
 tags:
+- vue
 ---
 #### 前端路由
 

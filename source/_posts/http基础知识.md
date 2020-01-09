@@ -1,7 +1,10 @@
 ---
 title: http基础知识
 date: 2018-05-07 16:15:23
+categories:
+- HTTP
 tags:
+- HTTP
 ---
 
 #### 1.何为HTTP?

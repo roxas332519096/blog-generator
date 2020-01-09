@@ -1,7 +1,10 @@
 ---
 title: v-bind以及class与style的绑定
 date: 2018-07-25 13:42:41
+categories:
+- vue
 tags:
+- vue
 ---
 
 #### 了解bind指令

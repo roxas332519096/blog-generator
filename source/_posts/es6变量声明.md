@@ -2,9 +2,9 @@
 title: ES6变量声明
 date: 2019-07-08 12:17:27
 categories:
-  - ES6
+ - ES6
 tags:
-  - ES6
+- ES6
 ---
 
 #### let

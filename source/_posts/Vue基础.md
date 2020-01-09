@@ -1,7 +1,10 @@
 ---
 title: Vue基础
 date: 2018-07-13 23:05:15
+categories:
+- vue
 tags:
+- vue
 ---
 ### 简介
 

@@ -1,7 +1,10 @@
 ---
 title: HEXO博客相关操作
 date: 2018-04-14 09:58:04
+categories:
+- 库
 tags:
+- 库
 ---
 
 

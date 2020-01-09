@@ -1,7 +1,10 @@
 ---
 title: AJAX
 date: 2018-05-31 14:16:01
+categories:
+- JS
 tags:
+- JS
 ---
 #### AJAX是什么?
 

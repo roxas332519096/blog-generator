@@ -1,7 +1,10 @@
 ---
 title: 简单server建设
 date: 2018-05-07 16:58:44
+categories:
+- node
 tags:
+- node
 ---
 #### 1.TCP协议
 

@@ -1,7 +1,10 @@
 ---
 title: DOM
 date: 2018-05-09 18:52:32
+categories:
+- JS
 tags:
+- JS
 ---
 ### DOM 
 

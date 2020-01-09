@@ -2,7 +2,9 @@
 title: Vue-修饰符
 date: 2019-07-21 17:06:14
 categories:
+- vue
 tags:
+- vue
 ---
 
 #### .stop

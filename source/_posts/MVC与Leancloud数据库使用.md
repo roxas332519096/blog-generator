@@ -1,7 +1,10 @@
 ---
 title: MVC与Leancloud数据库使用
 date: 2018-06-06 20:09:08
+categories:
+- JS
 tags:
+- JS
 ---
 Unsplash 找图
 

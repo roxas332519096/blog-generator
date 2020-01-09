@@ -1,7 +1,10 @@
 ---
 title: CSS几种居中
 date: 2018-05-07 17:50:31
+categories:
+- CSS
 tags:
+- CSS
 ---
 ### 几种居中布局
 

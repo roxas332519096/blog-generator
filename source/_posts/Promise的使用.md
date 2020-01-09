@@ -2,9 +2,9 @@
 title: Promise的使用 & async awit
 date: 2019-01-18 21:39:10
 categories:
-  - ES6
+- ES6
 tags:
-  - ES6
+- ES6
 ---
 
 ### Promise

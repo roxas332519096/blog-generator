@@ -1,7 +1,10 @@
 ---
 title: 自制一个简单的jQuery库
 date: 2018-05-24 10:47:25
+categories:
+- JS
 tags:
+- JS
 ---
 #### 自制一个简单的jQuery库
 

@@ -1,7 +1,10 @@
 ---
 title: HTTP状态码
 date: 2018-05-27 20:35:03
+categories:
+- HTTP
 tags:
+- HTTP
 ---
 ##### 2XX:(请求成功) 成功处理了请求的状态码
 

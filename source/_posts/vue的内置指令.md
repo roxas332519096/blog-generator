@@ -1,7 +1,10 @@
 ---
 title: vue的内置指令
 date: 2018-07-25 14:36:10
+categories:
+- vue
 tags:
+- vue
 ---
 
 #### v-cloak 

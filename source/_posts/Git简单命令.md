@@ -1,7 +1,10 @@
 ---
 title: Git简单命令
 date: 2018-04-14 10:40:10
+categories:
+- git
 tags:
+- git
 ---
 
 #### 1.更新文件到Github相关操作

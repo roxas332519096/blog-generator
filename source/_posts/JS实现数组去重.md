@@ -1,7 +1,10 @@
 ---
 title: JS实现数组去重
 date: 2018-05-27 20:38:43
+categories:
+- JS
 tags:
+- JS
 ---
 
 #### ES5 :

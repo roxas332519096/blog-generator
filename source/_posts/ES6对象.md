@@ -2,9 +2,9 @@
 title: ES6对象
 date: 2019-07-08 17:42:13
 categories:
-  - ES6
+- ES6
 tags:
-  - ES6
+- ES6
 ---
 
 #### 生成空对象
