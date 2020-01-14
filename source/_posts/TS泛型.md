@@ -110,10 +110,19 @@ let string = identity('hi')
  function create<T>(c: { new(): T }): T {
         return new c()
     }
+```
 
-    //先简化为js代码
+看不懂?那先转化为js代码
+
+``` bash
 
     function create(c) {
+        return new c()
+    }
+```
+
+``` bash
+ function create<T>(c: { new(): T }): T {
         return new c()
     }
 
@@ -126,14 +135,5 @@ let string = identity('hi')
     }
 
     let tom = create<Human>(Human)
-    let jack = create<Human>(Animal)
-```
-
-看不懂?那先转化为js代码
-
-``` bash
-
-    function create(c) {
-        return new c()
-    }
+    let jack = create<Human>(Animal) //报错,因为是Human
 ```
