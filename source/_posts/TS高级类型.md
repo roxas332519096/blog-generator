@@ -60,6 +60,11 @@ tags:
 
 给类型取别名,跟接口很像
 
+区别
+    1. interface只描述对象，type则描述所有数据
+    2. type只是别名，interface则是类型声明
+    3. 对外API尽量用interface，方便扩展，对内API尽量用type，防止代码分散
+
 ``` bash
     type Age = number
     const age: Age = 18
@@ -67,11 +72,18 @@ tags:
     type Name = string
     const name: Name = 'tom'
 
+    type A = {
+        name: string
+    }
+
+    interface B {
+        name: string
+    }
 
 ```
 
 
-4. 字面量类型
+1. 字面量类型
 
 通常用来作可选项
 

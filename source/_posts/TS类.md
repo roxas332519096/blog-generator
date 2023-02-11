@@ -34,7 +34,7 @@ interface People {
     move(): void
 }
 
-let jack = {
+let jack:People = {
     name: 'jack',
     age: 18,
     move(): void {

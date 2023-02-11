@@ -28,7 +28,19 @@ any2 = true
 ```
 
 ### 类型
-
+```bash
+    type Name = String
+    type FasleLike = '' | 0 | false | null | undefined
+    type Ponit = {x: number,y: number}
+    type Ponits = Ponit[]//数组
+    type Line = [Ponit, Ponit]//元祖
+    type Circle = { center: Ponit, radius: number }
+    type Fn = (a: number, b: number) => number
+    type FnWithProps = {
+        (a: number, b: number): number
+        prop: number
+    }
+```
 #### 枚举
 
 1. 不赋值
@@ -74,6 +86,11 @@ let a:number = test() //会报错
 
 
 默认情况下null和undefined是所有类型的子类型.例如,null可以赋值给number类型的变量.
+
+```bash
+type A = string & number
+//报错never
+```
 
 ### 断言
 
@@ -160,7 +177,7 @@ interface Human {
 interface Config {
         color?: string,
         width?: number,
-        [propName: string]: any  //添加这一行,意思是key为字符串类型,value为any类型
+        [key: string]: any  //添加这一行,意思是key为字符串类型,value为any类型,key
     }
 
     function created(config: Config): void {
