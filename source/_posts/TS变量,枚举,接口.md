@@ -1,5 +1,5 @@
 ---
-title: 'TS变量,接口'
+title: 'TS变量,枚举,接口'
 date: 2020-01-08 14:06:27
 categories:
 - TS
@@ -7,7 +7,7 @@ tags:
 - TS
 ---
 
-#### 类型
+#### 变量
 
 跟JS一样
 
@@ -25,21 +25,6 @@ let any1:any = 1
 let any2:any = 'b'
 any1 = {}
 any2 = true
-```
-
-### 类型
-```bash
-    type Name = String
-    type FasleLike = '' | 0 | false | null | undefined
-    type Ponit = {x: number,y: number}
-    type Ponits = Ponit[]//数组
-    type Line = [Ponit, Ponit]//元祖
-    type Circle = { center: Ponit, radius: number }
-    type Fn = (a: number, b: number) => number
-    type FnWithProps = {
-        (a: number, b: number): number
-        prop: number
-    }
 ```
 #### 枚举
 
@@ -92,14 +77,6 @@ type A = string & number
 //报错never
 ```
 
-### 断言
-
-自己主观认为变量是哪个类型
-
-``` bash
-let a:any = '123'
-console.log((<string>a).split(''))
-```
 
 ### 接口
 
@@ -135,7 +112,7 @@ console.log((<string>a).split(''))
 
 1. readonly 
 
-不能更改
+只读
 
 ``` bash
 interface Human {

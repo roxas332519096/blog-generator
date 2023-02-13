@@ -33,6 +33,7 @@ let string = identity('hi')
 ```
 
 #### 数组泛型
+
 ``` bash
 
     interface Human {

@@ -1,5 +1,5 @@
 ---
-title: TS高级类型
+title: TS类型
 date: 2020-01-16 03:07:33
 categories:
 - TS
@@ -7,56 +7,22 @@ tags:
 - TS
 ---
 
-1. 且类型(交叉类型)
-
-两种类型都需满足
-
-``` bash
-    interface human {
-        name: string
-        age: number
-    }
-
-    interface student {
-        name: string
-        id: number
-    }
-
-    let tom: human & student = {
-        name: 'tom',
-        age: 18,
-        id: 123
+### 类型
+```bash
+    type Name = String
+    type FasleLike = '' | 0 | false | null | undefined
+    type Ponit = {x: number,y: number}
+    type Ponits = Ponit[]//数组
+    type Line = [Ponit, Ponit]//元祖
+    type Circle = { center: Ponit, radius: number }
+    type Fn = (a: number, b: number) => number
+    type FnWithProps = {
+        (a: number, b: number): number
+        prop: number
     }
 ```
 
-2. 或类型(联合类型)
-
-满足一种类型即可
-
-``` bash
-    interface human {
-        name: string
-        age: number
-    }
-
-    interface student {
-        name: string
-        id: number
-    }
-
-    let tom: human | student = {//满足两种
-        name: 'tom',
-        age: 18,
-        id: 123
-    }
-
-    let jack: human | student = {//满足一种
-        name: 'jack',
-        age: 19
-    }
-```
-
-3. 类型别名type
+### 类型别名type
 
 给类型取别名,跟接口很像
 
@@ -82,8 +48,7 @@ tags:
 
 ```
 
-
-1. 字面量类型
+### 字面量类型
 
 通常用来作可选项
 
@@ -104,7 +69,111 @@ tags:
     const a: A = 1
 ```
 
-5. this类型
+### 索引签名
+```bash
+type Hash = {
+    [k:string]:unknown
+    length:number
+}
+
+```
+### 映射类型
+多用于泛型
+```bash
+type Hash = {
+    [k in string]:unknown
+}
+```
+### 且类型(交叉类型)
+
+两种类型都需满足
+
+``` bash
+    interface human {
+        name: string
+        age: number
+    }
+
+    interface student {
+        name: string
+        id: number
+    }
+
+    let tom: human & student = {
+        name: 'tom',
+        age: 18,
+        id: 123
+    }
+
+
+```
+
+### 或类型(联合类型)
+
+满足一种类型即可
+
+``` bash
+    interface human {
+        name: string
+        age: number
+    }
+
+    interface student {
+        name: string
+        id: number
+    }
+
+    let tom: human | student = {//满足两种
+        name: 'tom',
+        age: 18,
+        id: 123
+    }
+
+    let jack: human | student = {//满足一种
+        name: 'jack',
+        age: 19
+    }
+    type A1 = number
+    type B1 = string
+    type C1 = A1 | B1
+
+    type A2 = {name:string}
+    type B2 = {age:number}
+    type C2 = A2 | B2
+    const c2:C2 = {
+        name:'John',
+        age:18
+    }
+    const c3:c2 = {
+        name:'John'
+    }
+```
+#### 类型收窄
+
+1. js方法：type of instanceof
+2. Ts方法：is
+3. Ts方法（可辨别联合）：x.kind
+```bash
+    interface Circle { kind: 'circle', radius: number }
+    interface Square { kind: 'square', sideLength: number }
+    type Shape = Circle | Square;
+    const f1 = (shape: Shape) => {
+        if (shape.kind === 'circle') {
+            shape //Circle
+        } else if (shape.kind === 'square') {
+            shape //Square
+        } else {
+            shape //Never
+        }
+    }
+```
+4. Ts方法：断言
+```bash
+let b :unknown = await axios(...)
+(b as number).toFixed();
+```
+
+### this类型
 
 自动判断this类型(多态)
 
@@ -154,76 +223,3 @@ ts的this可以推断类型
     console.log(calc) //0.6569865987187891
 ```
 
-6. 索引类型 keyof与T[K]
-
- 索引访问操作符:T[K]表示对象T的key对应的类型的数组
-
-``` bash
-    function pluck<T, K extends keyof T>(object: T, keys: Array<K>): T[K][] {
-        //T - {name:string,age:number,grade:number}
-        //keyof T - 'name' | 'age | 'grade'
-        //K extends keyof T - 'name' | 'age | 'grade'
-        return keys.map(key => object[key])
-    }
-
-    interface Person {
-        name: string
-        age: number
-        grade: number
-    }
-
-    type X = keyof Person
-
-    pluck({ name: 'frank', age: 18, grade: 100 }, ['name', 'age'])
-    //['frank'.18] => Array<T[K]> => T[K][]
-```
-
-7. Readonly 和 Partial
-
-映射类型
-
-``` bash
-    interface Person {
-        name: string
-        age: number
-    }
-
-    type ReadonlyPerson = Readonly<Person> //所有key只读
-    type PartialPerson = Partial<Person> //所有key可选
-```
-
-8. 可识别联合
-
-需求1:从N选1
-
-``` bash
-    type Props = {
-        actions: 'create'
-        name: string
-    } | {
-        actions: 'update'
-        name: string
-        id: number
-    }
-```
-
-需求2:我们需要识别出1还是2
-
-`` bash
-    type Props = {
-        actions: 'create'
-        name: string
-    } | {
-        actions: 'update'
-        name: string
-        id: number
-    }
-
-    function(props: Props) {
-        if (props.actions === 'create') {
-
-        } else {
-            console.log(props.id)
-        }
-    }
-```
