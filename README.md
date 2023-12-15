@@ -20,3 +20,8 @@ hexo g
 ```
 hexo d
 ```
+
+#### 本地预览
+```
+hexo server
+```

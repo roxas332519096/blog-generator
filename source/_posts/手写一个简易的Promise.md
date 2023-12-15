@@ -1,8 +1,10 @@
 ---
 title: 手写一个简易的Promise
 date: 2023-02-08 23:39:13
-categories: - JS
-tags: - JS
+categories: 
+- JS
+tags: 
+- JS
 ---
 
 

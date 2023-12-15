@@ -2,7 +2,7 @@
 title: TS泛型
 date: 2020-01-11 20:37:55
 categories:
--TS
+- TS
 tags:
 - TS
 ---

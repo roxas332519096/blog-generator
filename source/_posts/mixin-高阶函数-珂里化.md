@@ -1,8 +1,10 @@
 ---
 title: 'mixin,高阶函数,珂里化'
 date: 2023-02-11 14:14:26
-categories: - JS
-tags: -JS
+categories: 
+- JS
+tags: 
+- JS
 ---
 
 ### mixin
